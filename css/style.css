@@ -1,4 +1,23 @@
 
+.about-hero { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; padding: 76px 0 100px; }
+.about-hero-copy { animation: slide-in-left .75s both; }
+.about-hero-visual { position: relative; min-height: 500px; animation: slide-in-right .85s .08s both; }
+.about-hero-image { position: absolute; inset: 0 35px 0 0; background: linear-gradient(35deg, rgba(11,40,89,.28), transparent), url('https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=1200&q=85') center/cover; }
+.about-hero-caption { position: absolute; right: 0; bottom: 30px; width: 235px; padding: 22px; color: white; background: rgba(11,40,89,.84); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.about-hero-caption span { display: block; margin-bottom: 18px; color: #8bc9e7; font-size: 9px; text-transform: uppercase; letter-spacing: .14em; }.about-hero-caption strong { font-size: 22px; line-height: 1.1; }.about-hero-caption em { font-family: var(--serif); font-weight: 500; }
+.about-belief { padding: 105px 0 130px; }.about-belief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-top: 1px solid var(--line); padding-top: 38px; }.about-belief-grid h2 { margin: 0; }
+.about-portfolio { padding: 95px 0 110px; color: white; background: var(--deep); }.portfolio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }.portfolio-grid article { min-height: 300px; display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,.24); padding-top: 19px; }.portfolio-grid span { color: #8bc9e7; font-size: 9px; text-transform: uppercase; letter-spacing: .13em; }.portfolio-grid h3 { margin: 32px 0 10px; font-size: 21px; }.portfolio-grid p { color: #b5cedd; font-size: 12px; line-height: 1.6; }.portfolio-grid .text-link { margin-top: auto; color: white; }.portfolio-grid .text-link:hover { color: #8bc9e7; }
+.about-purpose { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; padding: 125px 0; }.purpose-heading h2 { margin: 0; }.purpose-list article { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 20px 0 25px; border-top: 1px solid var(--line); }.purpose-list article:last-child { border-bottom: 1px solid var(--line); }.purpose-list span { color: var(--green); font-size: 10px; }.purpose-list h3 { margin-bottom: 6px; font-size: 18px; }.purpose-list p { max-width: 420px; color: #61736d; font-size: 13px; margin: 0; }
+.about-values { padding: 95px 0 105px; background: #e8f1f8; }.about-values .values-grid { grid-template-columns: repeat(3, 1fr); }.about-values .values-grid > div { border-color: #b8cfdf; }.about-values .values-grid span { color: var(--green); }.about-values .values-grid h3 { color: var(--ink); }.about-values .values-grid p { color: #61736d; }
+.about-note { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; padding: 125px 0; }.about-note h2 { margin: 0; }.about-note-copy { padding-top: 38px; border-top: 1px solid var(--line); }
+@media (max-width: 700px) {
+	.about-hero { display: flex; flex-direction: column; gap: 35px; align-items: stretch; padding: 55px 0 75px; }
+	.about-hero-copy { order: 1; }.about-hero-visual { order: 0; min-height: 320px; }.about-hero-image { inset: 0 18px 0 0; }.about-hero-caption { bottom: 18px; width: 205px; padding: 17px; }.about-hero-caption strong { font-size: 18px; }
+	.about-belief, .about-purpose, .about-note { padding: 75px 0 85px; }
+	.about-belief-grid, .about-purpose, .about-note { grid-template-columns: 1fr; gap: 35px; }.about-note-copy { padding-top: 25px; }
+	.portfolio-grid, .about-values .values-grid { grid-template-columns: 1fr; gap: 25px; }.portfolio-grid article { min-height: 0; padding-bottom: 22px; }.portfolio-grid h3 { margin-top: 22px; }.about-portfolio, .about-values { padding: 70px 0 80px; }
+}
+
 @media (max-width: 700px) {
 	.content-grid, .contact-section { grid-template-columns: 1fr; }
 	.values-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -98,6 +117,12 @@
 @keyframes slide-in-right { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes slide-in-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes slide-out-right { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes logo-wave {
+	0%, 100% { transform: perspective(480px) rotateY(0deg) skewY(0deg) scaleX(1); filter: drop-shadow(0 3px 3px rgba(11,40,89,.08)); }
+	25% { transform: perspective(480px) rotateY(-7deg) skewY(1deg) scaleX(.985); filter: drop-shadow(3px 4px 4px rgba(11,40,89,.12)); }
+	50% { transform: perspective(480px) rotateY(5deg) skewY(-1deg) scaleX(1.01); filter: drop-shadow(5px 4px 5px rgba(11,40,89,.14)); }
+	75% { transform: perspective(480px) rotateY(-4deg) skewY(.6deg) scaleX(.992); filter: drop-shadow(3px 4px 4px rgba(11,40,89,.1)); }
+}
 .scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease var(--reveal-delay, 0ms), transform .7s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms); }
 .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
 .business-card.scroll-reveal, .production-card.scroll-reveal, .farm-card.scroll-reveal, .detail-card.scroll-reveal, .process-grid > div.scroll-reveal { transform: translateY(34px); }
@@ -119,7 +144,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #c98d42; outline-offs
 .site-header { position: relative; z-index: 10; background: var(--cream); }
 .nav-wrap { min-height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--deep); }
-.brand-mark { width: 132px; height: 54px; display: block; flex: 0 0 auto; border: 0; border-radius: 0; background: url('../images/Bluewing_logo.png') center / contain no-repeat; font-size: 0; text-indent: -9999px; }
+.brand-mark { width: 132px; height: 54px; display: block; flex: 0 0 auto; border: 0; border-radius: 0; background: url('../images/Bluewing_logo.png') center / contain no-repeat; font-size: 0; text-indent: -9999px; transform-origin: left center; animation: logo-wave 4.8s ease-in-out infinite; will-change: transform, filter; }
 .brand > span:not(.brand-mark) { display: none; }
 .brand strong, .brand small { display: block; line-height: 1.1; }
 .brand strong { font-size: 17px; letter-spacing: -.03em; }
@@ -211,4 +236,25 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; letter-spacing: -.
 @media (prefers-reduced-motion: reduce) {
 	.farm-detail-hero-copy, .farm-detail-hero-image, .glass-caption, .farm-facts, .detail-layout > div, .glass-aside, .quality-note { animation: none; }
 	.scroll-reveal, .scroll-reveal.is-visible { opacity: 1; transform: none; transition: none; }
+	.brand-mark { animation: none; }
 }
+
+/* BlueWing logo palette: deep navy, wing blue and a cool white foundation. */
+:root {
+	--ink: #102b5c;
+	--deep: #0b2859;
+	--green: #087fbd;
+	--mint: #dceef8;
+	--cream: #f5f8fc;
+	--line: #d4e0ec;
+}
+body { background: var(--cream); }
+.site-header { background: var(--cream); }
+.business-section, .production-standards, .farm-catalogue { background: #e8f1f8; }
+.focus-panel, .process-section, .site-footer { background: var(--deep); }
+.button-primary, .nav-cta { background: var(--deep); }
+.button-primary:hover, .nav-cta:hover { background: #087fbd; }
+.hero-note, .glass-aside { background: rgba(220,238,248,.78); }
+.hero-stamp, .contact-banner { background: #d8893b; }
+.section-kicker, .eyebrow, .card-type, .footer-label, .farm-facts span, .process-grid span, .values-grid span { color: var(--green); }
+.light { color: #8bc9e7; }
